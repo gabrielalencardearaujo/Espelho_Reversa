@@ -1,0 +1,65 @@
+.errors{
+  display: none;
+  position: absolute;
+  max-width: 500px;
+  text-align: center;
+  padding: 40px;
+  border-radius: 10px;
+  box-shadow: 4px 24px 24px rgba(0, 0, 0, .5);
+  top: 50%;
+  left: 50%;
+
+  transform: translate(-50%, -50%);
+  z-index: 5;
+}
+
+.c-white{
+  background-color: var(--color-light);
+}
+
+.msg-error{
+  text-align: center;
+}
+
+.msg-error{
+  color: var(--color-chatGPT);
+}
+
+.fa-circle-xmark{
+  position: inherit;
+  background-color: transparent;
+  border-radius: 50%;
+  right: 0%;
+  top: 0%;
+  color: rgba(248, 0, 0, 1);
+  /* background-color: transparent; */
+  font-size: 2em;
+}
+
+.btn-cancelamento, 
+.btn-encerramento, 
+.btn-agendamento{
+  margin: 20px 0px -10px 0px;
+  color: var(--color-chatGPT);
+  display: none;
+  border: none;
+}
+
+.btn-cancelamento:hover, 
+.btn-encerramento:hover, 
+.btn-agendamento:hover{
+  color: var(--color-chatGPT);
+  transition: .4s;
+}
+
+.btn-cancelamento:hover{
+  background-color: var(--color-cancelamento);
+}
+
+.btn-agendamento:hover{
+  background-color: var(--color-agendamento);
+}
+
+.btn-encerramento:hover{
+  background-color: var(--color-encerramento);
+}

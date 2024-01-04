@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Comprovante de Devolução - SAFRA</title>
+
+  <!-- Conversor EXCEL to JSON -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.16.8/xlsx.full.min.js"></script>
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="./assets/css/css-bootstrap/bootstrap.min.css">
+
+  <!-- My stylesheets CSS -->
+  <link rel="stylesheet" href="./assets/css/estilo-geral.css">
+  <link rel="stylesheet" href="./assets/css/estilo-impressao.css">
+  <link rel="stylesheet" href="./assets/css/style-file-upload.css">
+  <link rel="stylesheet" href="./assets/css/error.css">
+
+  <!-- FontAwesome -->
+  <link rel="stylesheet" href="./assets/fontawesome/css/all.css">
+
+  <!-- Favicon -->
+  <link rel="shortcut icon" href="./assets/img/logo-banco-safra-icon-4096.png" type="image/x-icon">
+</head>
+
+<body class="fundo-espelho">
+
+  <!-- Inicio comprovante-->
+  <div class="comprovante">
+    <h2> Comprovante de Devolução</h2>
+    <div class="nav-item logo">
+      <a class="nav-link" href="#">
+        <img src="./assets/img/banco-safra-logo-1.png" alt="" width="140" height="40"
+          class="d-inline-block align-text-center">
+      </a>
+    </div>
+  </div> <!-- Fim comprovante-->
+
+
+
+  <header class="mb-3">
+    <nav class="d-flex justify-content-around p-3 border-bottom">
+      <div class="menu-topo">
+        <ul class="d-flex nav">
+          <li class="nav-item"><a class="link-menu nav-link" href="./index.html">Reversa</a></li>
+          <li class="nav-item"><a class="link-menu nav-link" href="./database.html">Banco de Dados</a></li>
+          <li class="nav-item"><a class="link-menu nav-link" href="">Expedição</a></li>
+          <li class="nav-item"><a class="link-menu nav-link" href="#"><abbr title="Mudar para tema light"><i
+                  class="fa-solid fa-sun dark" id="theme"></i></abbr></a></li>
+        </ul>
+      </div>
+      <div class="nav-item logo">
+        <a class="nav-link" href="#" id="logoSafra">
+          <img src="./assets/img/banco-safra-logo-1.png" alt="" width="140" height="40"
+            class="d-inline-block align-text-center">
+        </a>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Inicio mensagem erro -->
+  <div class="errors c-white">
+    <h4 class="msg-error c-white text-fluid">OS com Pré-Baixas Divergente. Verifique com o técnico:</h4>
+    <i class="fa-solid fa-circle-xmark c-white" id="btn_close_error"></i>
+
+    <button class="btn btn-cancelamento" id="baixa">Pré-Cancelamento</button>
+    <button class="btn btn-agendamento" id="baixa">Pré-Agendamento</button>
+    <button class="btn btn-encerramento" id="baixa">Pré-Encerramento</button> 
+  </div>
+
+  <main style="max-width: 85vw;min-width: 1100px;margin: auto;">
+    <div class="container-fluid cabecalho p-3 pb-5 mb-3 border-bottom">
+      <!-- Select tecnicos -->
+      <div class="informacoes row">
+        <div class="tecnico col-3 ms-5 d-flex flex-column m-auto">
+          <select class="nomeTecnico p-2 border-0 container-fluid">
+            <option value=" " class="option-hover"> ---- SELECIONE UM TÉCNICO ---- </option>
+          </select>
+
+          <!-- Input OS / SN -->
+          <input class="codigo ms-3 mt-4 p-1" type="text" name="" id="" style="width: 350px;" autofocus>
+        </div>
+
+        <div class="print col-4 d-flex align-items-end">
+          <button class="btn fs-5 imprimir">IMPRIMIR</button>
+        </div>
+
+        <!-- Informacoes do Tecnico -->
+        <div class="fs-6 col-4 d-flex justify-content-end me-1">
+          <div class="me-3">
+            <div class="p-0">Agendamentos: <strong id="number_agendamentos"></strong></div>
+            <div class="p-0">Cancelamentos: <strong id="number_cancelamentos"></strong></div>
+            <div class="p-0">Encerramentos: <strong id="number_encerramentos"></strong></div>
+            <div class="p-0">Não Atendido: <strong id="number_NA"></strong></div>
+          </div>
+          <div>
+            <div class="p-0">Func. 991: <strong id="number_991"></strong></div>
+            <div class="p-0">Uso L.S.: <strong id="number_LS"></strong></div>
+            <div class="p-0">Pendentes: <strong id="number_pendentes"></strong></div>
+            <div class="p-0">Total: <strong id="number_total"></strong></div>
+          </div>
+        </div>
+
+        <!-- Assinaturas -->
+        <div class="assinaturas mt-5 justify-content-around">
+          <p>Nome do Courier:_______________________________________________________________</p>
+          <p>Nome do Atendente:_____________________________________________________________</p>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Tabela -->
+    <table class="table table-sm align-middle" id="tableAll">
+      <thead>
+        <tr class="text-center" scope="col">
+          <th class="btn-delete-os">
+            <abbr title="Reverter Devolução">
+              <input class="btn-delete-os" type="checkbox" id="ireverterOS">
+            </abbr>
+          </th>
+          <th>OS</th>
+          <th>Saída a Campo</th>
+          <th>Dias</th>
+          <th>Razão Social</th>
+          <th>Serviço</th>
+          <th>Pré-Baixa Mobile</th>
+          <th>991</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody class="fonte-table" id="tableBody">
+        <!-- Os chamados sao gerados por JS -->
+      </tbody>
+    </table>
+
+    <div class="box-input-upload">
+      <input type="file" class="upload_hide" id="upload_costum" multiple>
+      <label for="upload_costum" class="upload_label">
+        <i class="fas fa-cloud-upload-alt"></i>
+        <p class="drag_text">Arrate e Solte o Pendente Geral</p>
+        <button class="choose_file">Selecione o Arquivo</button>
+      </label>
+    </div>
+  </main>
+
+  <footer>
+    <p>Developed by Gabriel Alencar</p>
+  </footer>
+
+
+  <script src="./assets/js/bundle.js"></script>
+</body>
+
+</html>

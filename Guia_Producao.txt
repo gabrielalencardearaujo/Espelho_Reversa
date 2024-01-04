@@ -1,0 +1,23 @@
+<CSS>
+    -> Alterar o hover padrao do select (o background azul) (talvez fazer isso);
+    -> Resolver o BUG do layout do PRINT na segunda pagina de impressao. O corpo da tabela esta sobrepondo o cabecalho. ***
+
+<JS>
+    -> Remover as OS no banco de dados que foram devolvidas a 2 meses atras. ***
+
+    -> Apresentar apenas 100 OSs no banco de dados, omitir o restante. ***
+
+    -> Verificar se o terminal de instalacao foi bipado e a OS tem pre-baixa mobile de Encerramento. Emitir um alerta. (nao foi resolvido)
+
+    -> Resolver o problema do terminal nao ativado. Nao esta funcionando direito. Ele apresentar erro em algumas OSs do Jose, e aparentemente o terminal foi ativado pois esta com ticket de ativacao. (Acho que foi resolvido)
+
+    -> Se o input de buscar OS no banco de dados for vazio, deve mostrar as 100 OSs. **
+
+    -> Apos uma verificacao de uma baixa divergente e contabilizado corretamente o contador de baixas. Se sairmos da reversa do tecnico e voltarmos, o contador nao salva a contabilizacao da pre baixa divergente. (Isso deve ser resolvido?)
+
+    -> Verificar se foi ativado o terminal em uma manutencao ou instalacao de uma POS. Se nao for, apresentar mensagem de alerta avisando o caso. (TESTAR)
+
+    #PENSAR EM UMA MANEIRA DE SALVAR O BANCO DE DADOS EM OUTRO LOCALSTORAGE CASO SEJA NECESSARIO (quando precisar mudar de PC)
+    
+<JS - errors>
+    -> Sobrepor as mensagens de erro caso ocorra duas simultaneamente. **

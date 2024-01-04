@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Banco de Dados - Reversa - SAFRA</title>
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="../src/assets/css/css-bootstrap/bootstrap.min.css">
+
+  <!-- My stylesheets CSS -->
+  <link rel="stylesheet" href="../src/assets/css/estilo-geral.css">
+  <link rel="stylesheet" href="../src/assets/css/estilo-DataBase.css">
+
+  <!-- FontAwesome -->
+  <link rel="stylesheet" href="../src/assets/fontawesome/css/all.css">
+
+  <!-- Favicon -->
+  <link rel="shortcut icon" href="../src/assets/img/logo-banco-safra-icon-4096.png" 
+</head>
+
+<body class="fundo-espelho">
+  <header class="mb-3">
+    <nav class="d-flex justify-content-around p-3 border-bottom">
+      <div class="menu-topo">
+        <ul class="d-flex nav">
+          <li class="nav-item"><a class="link-menu nav-link" href="./index.html">Reversa</a></li>
+          <li class="nav-item"><a class="link-menu nav-link" href="./database.html">Banco de Dados</a></li>
+          <li class="nav-item"><a class="link-menu nav-link" href="#">Expedição</a></li>
+          <li class="nav-item"><a class="link-menu nav-link" href="#"><abbr title="Mudar para tema dark"><i class="fa-solid fa-sun dark" id="theme"></i></abbr></a></li>
+        </ul>
+      </div>
+      <div class="nav-item logo">
+        <a class="nav-link" href="#" id="logoSafra">
+          <img src="../src/assets/img/banco-safra-logo-1.png" alt="" width="140" height="40"
+            class="d-inline-block align-text-center">
+        </a>
+      </div>
+    </nav>
+  </header>
+
+  <main style="max-width: 70vw;min-width: 1100px;margin: auto;">
+    <div class="container-fluid cabecalho p-3 pb-5 mb-3 border-bottom">
+      <div class="d-flex justify-content-between align-items-center">
+        <h2>Banco de Dados - OS's Devolvidas</h2>
+        <span class="data"></span>
+      </div>
+
+      <div class="informacoes row">
+        <div class="tecnico col-6 ms-5 d-flex m-auto align-items-end">
+          <input class="codigo ms-3 mt-4 p-1" type="text" name="" id="" style="width: 350px;" autofocus placeholder="Consultar OS">
+          <div class="removeOS ms-5">
+            <button class="btn fs-5 deleteOS" id="deleteOS">REMOVER</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Tabela OS's Devolvidas -->
+    <table class="table table-sm align-middle" id="tableAll">
+      <thead>
+        <tr class="text-center" scope="col">
+          <th>#</th>
+          <th>OS</th>
+          <th>Saída a Campo</th>
+          <th>Serviço</th>
+          <th>Pré-Baixa Mobile</th>
+          <th>Data Devolução</th>
+
+        </tr>
+      </thead>
+      <tbody class="fs-6" id="tableBody">
+       
+      </tbody>
+    </table>
+    <h3 class="nao_encontrado" id="id_notFound"></h3>
+  </main>
+  
+  <footer>
+    <p>Developed by Gabriel Alencar</p>
+  </footer>
+
+
+  <!-- Javascript -->
+  <script src="./assets/js/bundle.js"></script>
+</body>
+</html>

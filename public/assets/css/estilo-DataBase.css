@@ -1,0 +1,8 @@
+.nao_encontrado{
+  color: var(--color-light);
+  opacity: .5;
+  font-style: italic;
+  font-size: 1.3em;
+  padding: 20px;
+  text-align: center;
+}

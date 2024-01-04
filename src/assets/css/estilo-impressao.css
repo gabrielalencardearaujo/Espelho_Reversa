@@ -1,0 +1,77 @@
+@page {
+  size: landscape; /* define a orientação da página como paisagem */
+  margin: 1cm;
+  @top-center {
+    content: "Data: " counter(page) " - " string(footer) " - " attr(date, datetime, "%d/%m/%Y");
+  }
+  @bottom-left {
+    content: "Desenvolvido por Gabriel Alencar";
+  }
+}
+
+@media print {
+  *{
+    color: black !important;
+  }
+
+  main{
+    min-width: 1200px;
+  }
+
+  header, 
+  input,
+  .imprimir, 
+  .print{
+    display: none !important;
+  }
+
+  div[class~="comprovante"]{
+    display: flex;
+  }
+
+  .nomeTecnico{
+    width: 800px !important;
+  }
+
+  .assinaturas{
+    display: flex;
+    margin-bottom: -60px;
+  }
+
+  .fonte-table{
+    font-size: 0.65em;
+    padding: 2px !important;
+  }
+
+  .ttp, 
+  #devolucao{
+    font-weight: normal !important;
+  }
+
+  footer{
+    bottom: -20px;
+  }
+
+  @page {
+    size: landscape; /* define a orientação da página como paisagem */
+    margin: 1cm;
+    @top-center {
+      content: "Data: " counter(page) " - " string(footer) " - " attr(date, datetime, "%d/%m/%Y");
+    }
+    @bottom-left {
+      content: "Desenvolvido por Gabriel Alencar";
+    }
+  }
+  
+  @page :left {
+    @bottom-right {
+      content: "Cópia 1"; /* adiciona um rodapé para a primeira cópia */
+    }
+  }
+  
+  @page :right {
+    @bottom-right {
+      content: "Cópia 2"; /* adiciona um rodapé para a segunda cópia */
+    }
+  }
+}
